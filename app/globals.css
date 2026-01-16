@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #4A7F63;
+  color: #F5F1E8;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #D4AF37;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, border-color 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  border-color: #E4C558;
+}
+
+/* Use default scrollbar - removed custom styling */
