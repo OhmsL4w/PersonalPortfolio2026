@@ -27,6 +27,21 @@ export default function LoadingSequence() {
       exit={{ opacity: 0 }}
       className="fixed inset-0 flex items-center justify-center z-30 bg-forest"
     >
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.35]">
+        <svg className="w-full h-full">
+          <filter id="noise">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.8"
+              numOctaves="4"
+              stitchTiles="stitch"
+            />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noise)" />
+        </svg>
+      </div>
       {/* Simple, clean loading counter */}
       <div className="text-center">
         <motion.div
